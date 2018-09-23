@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:; connect-src http://localhost:8282;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <title>Identity Example</title>
+        <style>
+            html {
+                font-family: sans;
+            }
+            section {
+                margin-bottom: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="register-user">
+            <label>
+                email
+                <input id="register-user-email" type="text">
+            </label>
+            <label>
+                password
+                <input id="register-user-password1" type="password">
+                <input id="register-user-password2" type="password">
+            </label>
+            <div id="register-user-error"></div>
+            <button id="register-user-go">Go</button>
+        </section>
+
+
+        <section id="login">
+            <label>
+                email
+                <input id="login-email" type="text">
+            </label>
+            <label>
+                password
+                <input id="login-password" type="password">
+            </label>
+            <div id="login-error"></div>
+            <button id="login-go">Go</button>
+        </section>
+
+
+        <section id="logout"></section>
+        <script src="./dist/bundle.js"></script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+version: '2'
+services:
+  browser-dna-example-api:
+    build:
+      context: .
+      dockerfile: docker/api/Dockerfile
+    ports:
+     - "8282:8282"
+    environment:
+     - SQLT_API_PORT=8282
+     - SQLT_PG_USER=browser-dna-example
+     - SQLT_PG_DB=browser-dna-example
+     - SQLT_PG_PASS=this-is-dev
+     - SQLT_PG_HOST=postgres
+     - SQLT_PG_PORT=5432
+    depends_on:
+     - "postgres"
+    volumes:
+     - ../:/opt/browser-dna:ro
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: this-is-dev
+      POSTGRES_USER: browser-dna-example
+      POSTGRES_DB: browser-dna-example
