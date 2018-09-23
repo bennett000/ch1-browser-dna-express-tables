@@ -4,6 +4,7 @@ import { Handler } from './api';
 import { fingerprint, FingerprintedRequest } from '@ch1/browser-dna-express';
 import { fingerprintStore, DbSchema } from '@ch1/browser-dna-express-tables';
 import { SqlDb } from '@ch1/sql-tables';
+import * as env from './env';
 
 const cors = require('cors');
 const helmet = require('helmet');
@@ -13,7 +14,7 @@ const RateLimit = require('express-rate-limit');
 
 export function initServer(sql: SqlDb<DbSchema>, api: Handler[]) {
   const app = express();
-  const port = process.env.SQLT_API_PORT || 8282;
+  const port = env.apiPort;
 
   const corsOptions = {
     methods: 'POST,GET',
